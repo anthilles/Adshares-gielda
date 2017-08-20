@@ -1,0 +1,42 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+.one {
+  grid-column: 1;
+  grid-row: 1;
+  /*border: 1px solid black;*/
+}
+/*.two { 
+  grid-column: 3 / 6;
+  grid-row: 1;
+}*/
+.three {
+  grid-column:2 ;
+  grid-row: 1;
+}
+.four {
+  grid-column: 3;
+  grid-row: 1;
+}
+/*.five {
+  grid-column: 5 / 6;
+  grid-row: 1;
+}
+.six {
+  grid-column: 6 / 6;
+  grid-row: 1;
+}*/
+
+.canvasjs-chart-credit{
+  visibility: hidden;
+}
+
+
+
+.unstyled
+{
+    list-style:none;
+}

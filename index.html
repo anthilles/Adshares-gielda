@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta http-equiv="Content-Type" content="text/html"; charset="utf-8">
+    <title>ADST</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <div class="container">
+        <div class="page-header">
+  <h1><a href="https://adshares.net/" target="_blank"><img src="img/logo-dark1.png"></a><small>   BLOCKCHAIN REVOLUTION IN ADVERTISING
+</small></h1>
+</div>
+        <div>
+        <table class="table table-hover">
+        <thead>
+            <tr>
+            <th>Kurs BTC/USD</th>
+            <th>Kurs BTC/PLN</th>
+            <th>Kurs USD/PLN</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td id="kursBtcUsd">wczytywanie danych...</td>
+            <td id="kursBtcPln">wczytywanie danych...</td>
+            <td id="kursUsdPln">wczytywanie danych...</td>
+            </tr>
+        </tbody>
+        </table>
+        <h2>Kurs Adshares</h2>
+
+        <table class="table table-hover">
+        <thead>
+            <tr>
+            <th>Giełda</th>
+            <th>Ask</th>
+            <th>Spread</th>
+            <th>Bid</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td>Cryptopia</td>
+            <td id="kursCryptopiaPLN">wczytywanie danych...</td>
+            <td id="spreadBtc">wczytywanie danych...</td>
+            <td id="kursCryptopiaUSD">wczytywanie danych...</td>
+            </tr>
+            <tr>
+            <td>Kontrakt</td>
+            <td id="kursToken">wczytywanie danych...</td>
+            <td></td>
+            <td>N/A</td>
+            </tr>
+
+        </tbody>
+        </table>
+
+
+            <div class="wrapper">
+                <div class="one">
+                    <h2 class="center">Wykres</h2>
+            </div>
+            <div class="three">
+                    <h2 class="center">Średnia cena Adshares</h2>
+                    <table class="table table-hover">
+                        <thead>     
+                        <tr>
+                        <th>Waluta</th>
+                        <th>Kurs</th>
+                        </tr>
+                    </thead>
+                <tbody>
+                    <tr>
+                    <td>USD</td>
+                    <td id="cenadolar">wczytywanie danych..</td>    
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                    <td>PLN</td>
+                    <td id="cenapln">wczytywanie danych..</td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                    <td>BTC</td>
+                    <td id="cenabtc">wczytywanie danych..</td>
+                    </tr>
+                </tbody>
+                </table> 
+            </div>
+            <div class="four">
+                <h2 class="center">Wolumen</h2>
+                 <div id="chartContainer" style="height: 80%; width: 80%;"></div>
+            </div>
+        </div>  
+         <h2 class="center">Handel</h2>
+         <div class="wrapper">
+             <div class="one">
+                 <a href="https://www.cryptopia.co.nz/Exchange/?market=ADST_BTC" target="_blank"><img src="img/crypt.png" width="60%"></a>
+             </div>    
+         </div>    
+    </div>
+
+<div class="container">    
+<div class="row">
+    <hr>
+    	<div class="col-md-12">
+			<div class="col-md-2">
+				<ul class="unstyled">
+					<li>GitHub<li>
+					<li><a href="#">About us</a></li>
+				</ul>
+			</div>
+			<div class="col-md-2">
+				<ul class="unstyled">
+					<li>Applications<li>
+					<li><a href="#">Product for Mac</a></li>						
+				</ul>
+			</div>
+			<div class="col-md-2">
+				<ul class="unstyled">
+					<li>Services<li>
+					<li><a href="#">Web analytics</a></li>					
+				</ul>
+			</div>
+			<div class="col-md-2">
+				<ul class="unstyled">
+					<li>Documentation<li>
+					<li><a href="#">Product Help</a></li>						
+				</ul>
+			</div>
+			<div class="col-md-2">
+				<ul class="unstyled">
+					<li>Services<li>
+					<li><a href="#">Help</a></li>						
+				</ul>
+			</div>
+			<div class="col-md-2">
+				<ul class="unstyled">
+					<li>More<li>
+					<li><a href="#">Training</a></li>
+				</ul>
+			</div>					
+		</div>
+	</div>
+	<hr>
+	<div class="row">
+		<div class="col-md-12">
+			<!--<div class="col-md-8">
+				<a href="#">Terms of Service</a>    
+				<a href="#">Privacy</a>    
+				<a href="#">Security</a>
+			</div>-->
+			<div class="span4">
+				<p class="muted pull-right">© 2017 Adshares. All rights reserved</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+    <script src="script.js"></script>
+</body>    
+</html>
