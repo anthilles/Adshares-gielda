@@ -8,21 +8,32 @@ var dolar;
 var pln;
 var adstTokenPrice;
 var myObj;
+var cryptopiaLastPrice;
+var adstTokenAsk;
+var adstTokenBid;
 
 // CRYPTOPIA //
 function naStart(){
     $.getJSON("https://www.cryptopia.co.nz/api/GetMarket/ADST_BTC", function(result){
-    adstAskBtc = (result.Data.AskPrice).toFixed(7);
-    adstBidBtc = (result.Data.BidPrice).toFixed(7);
+    adstAskBtc = ((result.Data.AskPrice)/cryptopiaLastPrice).toFixed(7);
+    adstBidBtc = ((result.Data.BidPrice)/cryptopiaLastPrice).toFixed(7);
     adstLastBTc = (result.Data.LastPrice).toFixed(7);
-    const kursCryptPLN = document.getElementById("kursCryptopiaPLN").innerHTML = adstAskBtc + ' BTC';
-    const kursCryptUSD = document.getElementById("kursCryptopiaUSD").innerHTML = adstBidBtc + ' BTC';
+    const kursCryptPLN = document.getElementById("kursCryptopiaPLN").innerHTML = adstAskBtc + ' ETH';
+    const kursCryptUSD = document.getElementById("kursCryptopiaUSD").innerHTML = adstBidBtc + ' ETH';
     setTimeout(naStart, 5000);
     spread();
     sredniacena();
 });
 };
 naStart();
+
+function CryptopiaEthBtc(){
+    $.getJSON("https://www.cryptopia.co.nz/api/GetMarket/ETH_BTC", function(result){
+    cryptopiaLastPrice = (result.Data.LastPrice).toFixed(7);
+    setTimeout(naStart, 5000);
+});
+};
+CryptopiaEthBtc();
 
 function spread(){
     const spread = ((adstAskBtc - adstBidBtc)*100).toFixed(5) + ' %';
@@ -32,12 +43,32 @@ function spread(){
 
 // TOKEN ETHPLORER //
 
+// function naStartToken(){
+//     $.getJSON("https://api.ethplorer.io/getTokenInfo/0x422866a8F0b032c5cf1DfBDEf31A20F4509562b0?apiKey=freekey", function(resultToken){
+//     adstTokenPrice = (resultToken.price.rate/btcUsdAktualnyKurs).toFixed(7);
+//     const kursToken = document.getElementById("kursToken").innerHTML = adstTokenPrice + ' BTC';
+//     setTimeout(naStartToken, 5000);
+// });
+
+// TOKEN ADST //
+
 function naStartToken(){
-    $.getJSON("https://api.ethplorer.io/getTokenInfo/0x422866a8F0b032c5cf1DfBDEf31A20F4509562b0?apiKey=freekey", function(resultToken){
-    adstTokenPrice = (resultToken.price.rate/btcUsdAktualnyKurs).toFixed(7);
+    $.getJSON("https://ico.adshares.net/api/ticker/internal", function(resultToken){
+        adstTokenAsk = resultToken.ask;
+        adstTokenBid = resultToken.bid;
+        spreadToken = ((adstTokenAsk - adstTokenBid)*100).toFixed(5) + ' %';
+    document.getElementById("kursTokenAsk").innerHTML = adstTokenAsk + ' ETH';
+    document.getElementById("kursTokenBid").innerHTML = adstTokenBid + ' ETH';
+    document.getElementById("spreadToken").innerHTML = spreadToken;
+    
+    adstTokenPrice = (resultToken.price/btcUsdAktualnyKurs).toFixed(7);
     const kursToken = document.getElementById("kursToken").innerHTML = adstTokenPrice + ' BTC';
     setTimeout(naStartToken, 5000);
 });
+
+
+
+
 // BTC/USD //
     function btcUsdJson(){
         $.getJSON("https://api.coinmarketcap.com/v1/ticker/bitcoin/", function(btcUsdJsonDane){
